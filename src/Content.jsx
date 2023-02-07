@@ -46,9 +46,9 @@ export function Content() {
         <Route path="/games" element={<GamesIndex games={games} onShowGame={handleShowGame}/>} />
         <Route path="/games/:id" element={<GamesShowPage game={currentGame}/>}/>
         <Route path="/favorites" element={<FavoritesIndex favorites={favorites} />}/>
+        <Route path="/signup" element={<Signup />} />
       </Routes>
-
-      <Signup />
+      
       <LogoutLink />
     </div>
   );

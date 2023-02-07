@@ -7,7 +7,7 @@ export function GamesIndex(props) {
       {props.games.map((game) => (
         <div key={game.id}>
           <Link to={`/games/${game.id}`}>
-            {game.name} 
+            <h2>{game.name}</h2>
           </Link>
           <img src={game.image_url} />
         </div>
