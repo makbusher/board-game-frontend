@@ -1,3 +1,7 @@
+#favorites-index img {
+  width: 300px;
+}
+
 html {
   scroll-behavior: smooth;
 }
