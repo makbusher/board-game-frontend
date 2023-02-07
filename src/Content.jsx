@@ -2,6 +2,7 @@ import { Signup } from "./Signup";
 import { LogoutLink } from "./LogoutLink";
 import { FavoritesIndex } from "./FavoritesIndex";
 import { GamesIndex } from "./GamesIndex";
+import { GamesShow } from "./GamesShow";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
@@ -49,7 +50,7 @@ export function Content() {
       <GamesIndex games={games} onShowGame={handleShowGame}/>
       <FavoritesIndex favorites={favorites} />
       <Modal show={isGamesShowVisible} onClose={handleClose}>
-        <h1>Test</h1>
+        <GamesShow game={currentGame} />
       </Modal>
     </div>
   );
