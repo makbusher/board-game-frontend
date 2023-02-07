@@ -6,6 +6,7 @@ export function GamesIndex(props) {
         <div key={game.id}>
           <h2>{game.name}</h2>
           <img src={game.image_url} />
+          <button onClick={() => props.onShowGame(game)}>More Info</button>
         </div>
       ))}
     </div>

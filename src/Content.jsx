@@ -4,10 +4,13 @@ import { FavoritesIndex } from "./FavoritesIndex";
 import { GamesIndex } from "./GamesIndex";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Modal } from "./Modal";
 
 export function Content() {
   const [favorites, setFavorites] = useState([]);
   const [games, setGames] = useState([]);
+  const [isGamesShowVisible, setIsGamesShowVisible] = useState(false);
+  const [currentGame, setCurrentGame] = useState({});
 
   const handleIndexGames = () => {
     console.log("handleIndexGames");
@@ -25,6 +28,17 @@ export function Content() {
     });
   };
 
+  const handleShowGame = (game) => {
+    console.log("handleShowGame", game);
+    setIsGamesShowVisible(true);
+    setCurrentGame(game);
+  };
+
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsGamesShowVisible(false);
+  };
+
   useEffect(handleIndexFavorites, []);
   useEffect(handleIndexGames, []);
 
@@ -32,8 +46,11 @@ export function Content() {
     <div>
       <Signup />
       <LogoutLink />
-      <GamesIndex games={games} />
+      <GamesIndex games={games} onShowGame={handleShowGame}/>
       <FavoritesIndex favorites={favorites} />
+      <Modal show={isGamesShowVisible} onClose={handleClose}>
+        <h1>Test</h1>
+      </Modal>
     </div>
   );
 }
