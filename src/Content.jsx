@@ -2,10 +2,11 @@ import { Signup } from "./Signup";
 import { LogoutLink } from "./LogoutLink";
 import { FavoritesIndex } from "./FavoritesIndex";
 import { GamesIndex } from "./GamesIndex";
-import { GamesShow } from "./GamesShow";
+import { GamesShowPage } from "./GamesShowPage";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
+import { Routes, Route } from "react-router-dom";
 
 export function Content() {
   const [favorites, setFavorites] = useState([]);
@@ -35,23 +36,20 @@ export function Content() {
     setCurrentGame(game);
   };
 
-  const handleClose = () => {
-    console.log("handleClose");
-    setIsGamesShowVisible(false);
-  };
-
   useEffect(handleIndexFavorites, []);
   useEffect(handleIndexGames, []);
 
   return (
     <div>
+      <Routes>
+        <Route path="/" element={<GamesIndex games={games} onShowGame={handleShowGame}/>} />
+        <Route path="/games" element={<GamesIndex games={games} onShowGame={handleShowGame}/>} />
+        <Route path="/games/:id" element={<GamesShowPage game={currentGame}/>}/>
+        <Route path="/favorites" element={<FavoritesIndex favorites={favorites} />}/>
+      </Routes>
+
       <Signup />
       <LogoutLink />
-      <GamesIndex games={games} onShowGame={handleShowGame}/>
-      <FavoritesIndex favorites={favorites} />
-      <Modal show={isGamesShowVisible} onClose={handleClose}>
-        <GamesShow game={currentGame} />
-      </Modal>
     </div>
   );
 }
