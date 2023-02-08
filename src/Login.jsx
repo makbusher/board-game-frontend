@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
@@ -30,21 +31,48 @@ export function Login() {
 
   return (
     <div id="login">
-      <h1>Login</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Email: <input name="email" type="email" />
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-4">
+            <h1>Login</h1>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Email address</label>
+                <input 
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  placeholder="Enter email"
+                />
+              </div>
+              <div className="form-group">
+                <label>Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  className="form-control"
+                  placeholder="Password"
+                />
+              </div>
+              <div className="form-group form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="exampleCheck1"
+                />
+                <label className="form-check-label">Check me out</label>
+              </div>
+              <button type="submit">Login</button>
+            </form>
+          </div>
         </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      </div>
+        
     </div>
   );
 }
