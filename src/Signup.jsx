@@ -23,27 +23,57 @@ export function Signup() {
 
   return (
     <div id="signup">
-      <h1>Signup</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" type="text" />
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-4">
+            <h1>Signup</h1>
+            <ul>
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Name</label>
+                <input 
+                  type="text"
+                  name="name"
+                  className="form-control"
+                  placeholder="Enter name"
+                />
+              </div>
+              <div className="form-group">
+                <label>Email</label>
+                <input 
+                  type="email"
+                  name="email"
+                  className="form-control"
+                  placeholder="Enter email"
+                />
+              </div>
+              <div className="form-group">
+                <label>Password</label>
+                <input 
+                  type="password"
+                  name="password"
+                  className="form-control"
+                  placeholder="Enter password"
+                />
+              </div>
+              <div className="form-group">
+                <label>Password Confirmation</label>
+                <input 
+                  type="password"
+                  name="password_confirmation"
+                  className="form-control"
+                  placeholder="Re-enter password"
+                />
+              </div>
+              <button type="submit" className="btn btn-dark">Signup</button>
+            </form>
+          </div>
         </div>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <div>
-          Password confirmation: <input name="password_confirmation" type="password" />
-        </div>
-        <button type="submit">Signup</button>
-      </form>
+      </div>
     </div>
   );
 }

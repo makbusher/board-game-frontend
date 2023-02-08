@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const jwt = localStorage.getItem("jwt");
 if (jwt) {
@@ -56,7 +55,7 @@ export function Login() {
                   type="password"
                   name="password"
                   className="form-control"
-                  placeholder="Password"
+                  placeholder="Enter Password"
                 />
               </div>
               <div className="form-group form-check">
@@ -65,9 +64,9 @@ export function Login() {
                   className="form-check-input"
                   id="exampleCheck1"
                 />
-                <label className="form-check-label">Check me out</label>
+                <label className="form-check-label">Remember Me</label>
               </div>
-              <button type="submit">Login</button>
+              <button type="submit" className="btn btn-dark">Login</button>
             </form>
           </div>
         </div>
