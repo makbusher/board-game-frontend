@@ -16,7 +16,7 @@ export function FavoritesIndex (props) {
       <h1>My Favorites</h1>
       {props.favorites.map((favorite) => (
         <div key={favorite.id}>
-          <h2>{favorite.game.name}</h2>
+          <h2>{favorite.game.name}</h2>            
           <img src={favorite.game.image_url} />
           <button onClick={() => handleDestroyFavorite(favorite)}>Remove from Favorites</button>
         </div>

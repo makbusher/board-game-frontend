@@ -28,7 +28,6 @@ export function GamesShowPage() {
   return (
     <div>
       <h1>About {game.name}</h1>
-      <p>{game.id}</p>
       <p>Description: {game.description}</p>
       <p>Players: {game.players}</p>
       <p>Category: {game.category}</p>
