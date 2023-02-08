@@ -48,9 +48,8 @@ export function Content() {
         <Route path="/games/:id" element={<GamesShowPage game={currentGame}/>}/>
         <Route path="/favorites" element={<FavoritesIndex favorites={favorites} />}/>
         <Route path="/signup" element={<Signup />} />
+        <Route path="/logout" element={<LogoutLink />}/>
       </Routes>
-
-      <LogoutLink />
     </div>
   );
 }
