@@ -36,6 +36,7 @@ export function Content() {
     setCurrentGame(game);
   };
 
+
   useEffect(handleIndexFavorites, []);
   useEffect(handleIndexGames, []);
 
@@ -48,7 +49,7 @@ export function Content() {
         <Route path="/favorites" element={<FavoritesIndex favorites={favorites} />}/>
         <Route path="/signup" element={<Signup />} />
       </Routes>
-      
+
       <LogoutLink />
     </div>
   );
