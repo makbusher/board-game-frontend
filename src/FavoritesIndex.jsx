@@ -6,8 +6,8 @@ export function FavoritesIndex (props) {
 
   const handleDestroyFavorite = (favorite) => {
     console.log("handleDestroyFavorite", favorite);
-    axios.delete(`http://localhost:3000/favorites/${favorite.favorite_id}.json`).then((response) => {
-      setFavorites(favorites.filter((f) => f.id !== favorite.favorite_id));
+    axios.delete(`http://localhost:3000/favorites/${favorite.id}.json`).then((response) => {
+      setFavorites(favorites.filter((f) => f.id !== favorite.id));
     });
   };
 
