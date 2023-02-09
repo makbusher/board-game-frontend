@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <nav className="navbar navbar-expand-lg bg-primary" data-bs-theme="light">
+    <nav className="navbar navbar-expand-lg bg-secondary" data-bs-theme="light">
       <div className="container-fluid">
         <a className="navbar-brand navbar-dark bg-dark" href="/">BGR</a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
