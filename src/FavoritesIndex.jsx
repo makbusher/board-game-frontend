@@ -14,8 +14,10 @@ export function FavoritesIndex (props) {
 
   return (
     <div id="favorites-index">
-      <h1>My Favorites</h1>
+      <center>
+        <h1>My Favorites</h1>
       Search: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} list="names" />
+      </center>
       <datalist id="names">
         {props.favorites.map(favorite => (
           <option key={favorite.id} value={favorite.game.name} />
