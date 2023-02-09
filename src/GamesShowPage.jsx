@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { AwesomeButton } from 'react-awesome-button';
+import 'react-awesome-button/dist/styles.css';
 
 export function GamesShowPage() {
   const [game, setGame] = useState({});
@@ -40,13 +42,15 @@ export function GamesShowPage() {
       <p>Description: {game.description}</p>
       <p>Players: {game.players}</p>
       <p>Category: {game.category}</p>
+      <AwesomeButton type="secondary" onClick={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
+      <hr />
+      <h4> Reviews </h4>
       {reviews.map((review) => (
         <div key={review.id}>
           <p>Rating: {review.rating}</p>
           <p>Description: {review.description}</p>
         </div>
       ))}
-      <button onClick={() => handleCreateFavorite(game.id)}>Add to Favorites</button>
     </div>
   );
 }
