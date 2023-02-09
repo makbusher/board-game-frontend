@@ -7,8 +7,10 @@ export function GamesIndex(props) {
 
   return (
     <div id="games-index">
-      <h1>Board Games</h1>
+      <center>
+        <h1>Board Games</h1>
       Search: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} list="names" />
+      </center>
       <datalist id="names">
         {props.games.map(game => (
           <option key={game.id} value={game.name} />
