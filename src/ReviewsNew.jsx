@@ -1,3 +1,5 @@
+import { AwesomeButton } from 'react-awesome-button';
+
 export function ReviewsNew(props) {
   const handleSubmit = (event) => {
     console.log(props.gameId);
@@ -7,17 +9,36 @@ export function ReviewsNew(props) {
   };
 
   return (
-    <div>
-      <h1>Leave a Review</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Rating: <input name="rating" type="text" />
+    <div id="review-form">
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-md-4">
+            <h3>Leave a Review</h3>
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Rating</label>
+                <input 
+                  type="text"
+                  name="rating"
+                  className="form-control"
+                  placeholder="Enter 1-5"
+                />
+              </div>
+              <div className="form-group">
+                <label>Description</label>
+                <input
+                  type="text"
+                  name="description"
+                  className="form-control"
+                  placeholder="Description"
+                />
+              </div>
+              <AwesomeButton type="secondary" onPress={() => handleSubmit}>Submit</AwesomeButton>
+            </form>
+          </div>
         </div>
-        <div>
-          Description: <input name="description" type="text" />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
+      </div>
     </div>
   );
 }
+

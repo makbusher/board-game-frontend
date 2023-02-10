@@ -53,7 +53,6 @@ export function GamesShowPage() {
       <p>Players: {game.players}</p>
       <p>Category: {game.category}</p>
       <AwesomeButton type="secondary" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
-      <AwesomeButton type="secondary" onPress={() => handleCreateReview(game.id)}>Leave a review</AwesomeButton>
       <hr />
       <ReviewsNew onCreateReview={handleCreateReview}/>
       <h4> Reviews </h4>
