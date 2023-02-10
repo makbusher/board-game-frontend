@@ -1,5 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
+import { TrashIcon } from '@primer/octicons-react';
+import 'react-awesome-button/dist/styles.css';
+import { AwesomeButton } from 'react-awesome-button';
 
 export function FavoritesIndex (props) {
   const [favorites, setFavorites] = useState([]);
@@ -27,7 +30,7 @@ export function FavoritesIndex (props) {
         <div key={favorite.id}>
           <h2>{favorite.game.name}</h2>            
           <img src={favorite.game.image_url} />
-          <button onClick={() => handleDestroyFavorite(favorite)}>Remove from Favorites</button>
+          <AwesomeButton type="danger" onPress={() => handleDestroyFavorite(favorite)}>Remove from Favorites</AwesomeButton>
         </div>
       ))}
     </div>
