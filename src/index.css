@@ -1,12 +1,16 @@
 #favorites-index img {
   width: 300px;
+  height: 250px;
 }
 
 #games-index img {
   width: 300px;
-  height: 200px;
+  height: 250px;
 }
 
+#games-show img {
+  width: 300px;
+}
 
 html {
   scroll-behavior: smooth;

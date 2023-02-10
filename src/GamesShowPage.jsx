@@ -47,13 +47,23 @@ export function GamesShowPage() {
   useEffect(getReview, []);
 
   return (
-    <div>
-      <h1>{game.name}</h1>
-      <p>Description: {game.description}</p>
-      <p>Players: {game.players}</p>
-      <p>Category: {game.category}</p>
-      <AwesomeButton type="secondary" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
-      <hr />
+    <div id="games-show">
+      <h3>{game.name}</h3>
+      <small class="text-muted">{game.players} Players</small>
+      <div class="card mb-3" style={{width: '800px'}}>
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src={game.image_url} class="img-fluid rounded-start" alt="..." width="300" height="300" className="img-thumbnail pull-left"/>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <p class="card-text" align="left">{game.description}</p>
+              <p class="card-text" align="left">Category: {game.category}</p>
+              <AwesomeButton type="secondary" align="left" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
+            </div>
+          </div>
+        </div>
+      </div>
       <ReviewsNew onCreateReview={handleCreateReview}/>
       <h4> Reviews </h4>
       {reviews.map((review) => (
@@ -65,3 +75,6 @@ export function GamesShowPage() {
     </div>
   );
 }
+
+
+  

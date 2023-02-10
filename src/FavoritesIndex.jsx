@@ -29,9 +29,9 @@ export function FavoritesIndex (props) {
       {props.favorites.filter((favorite) => favorite.game.name.toLowerCase().includes(searchFilter.toLowerCase())).map((favorite) => (
         <div key={favorite.id}>
           <h2>{favorite.game.name}</h2>            
-          <img src={favorite.game.image_url} />
+          <img src={favorite.game.image_url} className="img-thumbnail"/>
           <AwesomeButton type="danger" onPress={() => handleDestroyFavorite(favorite)}>Remove from Favorites</AwesomeButton>
-        </div>
+        </div> 
       ))}
     </div>
   );
