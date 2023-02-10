@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import {HeartIcon} from '@primer/octicons-react';
+import { ReviewsNew } from "./ReviewsNew";
 
 export function GamesShowPage() {
   const [game, setGame] = useState({});
@@ -34,11 +35,11 @@ export function GamesShowPage() {
     });
   };
 
-  const handleCreateReview = (gameId, params, successCallback) => {
+  const handleCreateReview = (params, successCallback) => {
     console.log("handlingCreateReview");
-    axios.post(`http://localhost:3000/games/${gameId}/reviews.json`, params).then((response) => {
+    axios.post(`http://localhost:3000/games/${game.id}/reviews.json`, params).then((response) => {
       setReviews([...reviews, response.data]);
-      successCallback;
+      successCallback();
     });
   };
 
@@ -54,6 +55,7 @@ export function GamesShowPage() {
       <AwesomeButton type="secondary" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
       <AwesomeButton type="secondary" onPress={() => handleCreateReview(game.id)}>Leave a review</AwesomeButton>
       <hr />
+      <ReviewsNew onCreateReview={handleCreateReview}/>
       <h4> Reviews </h4>
       {reviews.map((review) => (
         <div key={review.id}>
