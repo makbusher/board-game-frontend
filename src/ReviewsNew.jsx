@@ -1,4 +1,5 @@
 import { AwesomeButton } from 'react-awesome-button';
+import { StarRating } from "./StarRating";
 
 export function ReviewsNew(props) {
   const handleSubmit = (event) => {
@@ -16,12 +17,9 @@ export function ReviewsNew(props) {
             <h3>Leave a Review</h3>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label>Rating</label>
-                <input 
-                  type="text"
+                Rating: <StarRating
                   name="rating"
                   className="form-control"
-                  placeholder="Enter 1-5"
                 />
               </div>
               <div className="form-group">
