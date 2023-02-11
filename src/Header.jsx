@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
+import { Login } from "./Login";
 
 export function Header() {
   return (
@@ -15,6 +16,7 @@ export function Header() {
             <Link className="nav-link" to="/favorites">My Favorites</Link>
             <Link className="nav-link" to="/signup">Signup</Link>
             <Link className="nav-link" to="/logout">Logout</Link>
+            <Link className="nav-link" to="/login">Login</Link>
           </div>
         </div>
       </div>

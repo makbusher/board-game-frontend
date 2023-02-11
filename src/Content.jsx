@@ -7,6 +7,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
 import { Routes, Route } from "react-router-dom";
+import { Login } from "./Login";
 
 export function Content() {
   const [favorites, setFavorites] = useState([]);
@@ -48,7 +49,8 @@ export function Content() {
         <Route path="/games/:id" element={<GamesShowPage game={currentGame} />}/>
         <Route path="/favorites" element={<FavoritesIndex favorites={favorites} />}/>
         <Route path="/signup" element={<Signup />} />
-        <Route path="/logout" element={<LogoutLink />}/>
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<LogoutLink />} />
       </Routes>
     </div>
   );
