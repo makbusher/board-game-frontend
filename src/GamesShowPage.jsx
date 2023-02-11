@@ -5,6 +5,8 @@ import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
 import {HeartIcon} from '@primer/octicons-react';
 import { ReviewsNew } from "./ReviewsNew";
+import { StarRating } from "./StarRating";
+import "./GamesShow.css"
 
 export function GamesShowPage() {
   const [game, setGame] = useState({});
@@ -69,7 +71,7 @@ export function GamesShowPage() {
         <h4> Reviews </h4>
         {reviews.map((review) => (
           <div key={review.id}>
-            <p >Rating: {review.rating}</p>
+            <StarRating setRating={review.rating} />
             <p >Description: {review.description}</p>
           </div>
         ))}
