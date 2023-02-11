@@ -6,7 +6,6 @@ import 'react-awesome-button/dist/styles.css';
 import {HeartIcon} from '@primer/octicons-react';
 import { ReviewsNew } from "./ReviewsNew";
 import { StarRating } from "./StarRating";
-import "./GamesShow.css"
 
 export function GamesShowPage() {
   const [game, setGame] = useState({});
@@ -51,8 +50,6 @@ export function GamesShowPage() {
   return (
     <div id="games-show">
       <div key={game.id}>
-        <h3>{game.name}</h3>
-        <small className="text-muted">{game.players} Players</small>
         <div className="card mb-3" style={{width: '800px'}}>
           <div className="row g-0">
             <div className="col-md-4">
@@ -60,7 +57,9 @@ export function GamesShowPage() {
             </div>
             <div className="col-md-8">
               <div className="card-body">
+                <h3 className="card-text" align="left">{game.name}</h3>
                 <p className="card-text" align="left">{game.description}</p>
+                <p className="card-text" align="left">{game.players} Players</p>
                 <p className="card-text" align="left">Category: {game.category}</p>
                 <AwesomeButton type="secondary" align="left" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
               </div>
@@ -71,7 +70,7 @@ export function GamesShowPage() {
         <h4> Reviews </h4>
         {reviews.map((review) => (
           <div key={review.id}>
-            <StarRating setRating={review.rating} />
+            <StarRating value={review.rating} />
             <p >Description: {review.description}</p>
           </div>
         ))}

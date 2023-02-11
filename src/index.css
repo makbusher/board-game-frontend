@@ -30,3 +30,22 @@ button {
 .off {
   color: #ccc;
 }
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+.card {
+  padding: 0.1rem;
+  margin-top: 40px;
+  margin-left: 10px;
+}
+
+body {
+  background-color: lightblue;
+}
