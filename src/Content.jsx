@@ -11,7 +11,6 @@ import { Login } from "./Login";
 export function Content() {
   const [favorites, setFavorites] = useState([]);
   const [games, setGames] = useState([]);
-  const [isGamesShowVisible, setIsGamesShowVisible] = useState(false);
   const [currentGame, setCurrentGame] = useState({});
 
   const handleIndexGames = () => {
@@ -32,10 +31,8 @@ export function Content() {
 
   const handleShowGame = (game) => {
     console.log("handleShowGame", game);
-    setIsGamesShowVisible(true);
     setCurrentGame(game);
   };
-
 
   useEffect(handleIndexFavorites, []);
   useEffect(handleIndexGames, []);
