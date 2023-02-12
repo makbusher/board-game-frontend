@@ -6,12 +6,14 @@ import 'react-awesome-button/dist/styles.css';
 import {HeartIcon} from '@primer/octicons-react';
 import { ReviewsNew } from "./ReviewsNew";
 import { StarRating } from "./StarRating";
+import { Modal } from "./Modal";
 
 export function GamesShowPage() {
   const [game, setGame] = useState({});
   const params = useParams();
   const [reviews, setReviews] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [isReviewsNewVisible, setIsReviewsNewVisible] = useState(false);
 
   const getGame = () => {
     console.log(params.id);
@@ -44,6 +46,11 @@ export function GamesShowPage() {
     });
   };
 
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsReviewsNewVisible(false);
+  };
+
   useEffect(getGame, []);
   useEffect(getReview, []);
 
@@ -58,15 +65,18 @@ export function GamesShowPage() {
             <div className="col-md-8">
               <div className="card-body">
                 <h3 className="card-text" align="left">{game.name}</h3>
+                <p className="text-muted" align="left">{game.players} Players</p>
                 <p className="card-text" align="left">{game.description}</p>
-                <p className="card-text" align="left">{game.players} Players</p>
                 <p className="card-text" align="left">Category: {game.category}</p>
                 <AwesomeButton type="secondary" align="left" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
+                <AwesomeButton type="secondary" onPress={() => setIsReviewsNewVisible(true)}>Leave a Review</AwesomeButton>
               </div>
             </div>
           </div>
         </div>
-        <ReviewsNew onCreateReview={handleCreateReview}/>
+        <Modal show={isReviewsNewVisible} onClose={handleClose}>
+          <ReviewsNew onCreateReview={handleCreateReview}/>
+        </Modal>
         <h4> Reviews </h4>
         {reviews.map((review) => (
           <div key={review.id}>
