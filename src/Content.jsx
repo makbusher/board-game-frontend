@@ -5,7 +5,6 @@ import { GamesIndex } from "./GamesIndex";
 import { GamesShowPage } from "./GamesShowPage";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Modal } from "./Modal";
 import { Routes, Route } from "react-router-dom";
 import { Login } from "./Login";
 

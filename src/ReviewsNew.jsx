@@ -23,7 +23,7 @@ export function ReviewsNew(props) {
                 />
               </div>
               <div className="form-group">
-                <label>Description</label>
+                <label>Description:</label>
                 <input
                   type="text"
                   name="description"

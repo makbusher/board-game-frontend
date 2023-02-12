@@ -6,14 +6,19 @@ import 'react-awesome-button/dist/styles.css';
 import {HeartIcon} from '@primer/octicons-react';
 import { ReviewsNew } from "./ReviewsNew";
 import { StarRating } from "./StarRating";
-import { Modal } from "./Modal";
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import * as React from 'react';
 
 export function GamesShowPage() {
   const [game, setGame] = useState({});
   const params = useParams();
   const [reviews, setReviews] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [isReviewsNewVisible, setIsReviewsNewVisible] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
 
   const getGame = () => {
     console.log(params.id);
@@ -46,9 +51,16 @@ export function GamesShowPage() {
     });
   };
 
-  const handleClose = () => {
-    console.log("handleClose");
-    setIsReviewsNewVisible(false);
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 700,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
   };
 
   useEffect(getGame, []);
@@ -69,13 +81,20 @@ export function GamesShowPage() {
                 <p className="card-text" align="left">{game.description}</p>
                 <p className="card-text" align="left">Category: {game.category}</p>
                 <AwesomeButton type="secondary" align="left" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
-                <AwesomeButton type="secondary" onPress={() => setIsReviewsNewVisible(true)}>Leave a Review</AwesomeButton>
+                <AwesomeButton type="secondary" onPress={handleOpen}>Leave a Review</AwesomeButton>
               </div>
             </div>
           </div>
         </div>
-        <Modal show={isReviewsNewVisible} onClose={handleClose}>
-          <ReviewsNew onCreateReview={handleCreateReview}/>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <ReviewsNew onCreateReview={handleCreateReview}/>
+          </Box>
         </Modal>
         <h4> Reviews </h4>
         {reviews.map((review) => (
