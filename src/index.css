@@ -4,8 +4,13 @@
 }
 
 #games-index img {
+  padding: 1rem;
   width: 300px;
   height: 250px;
+}
+
+#games-index {
+  padding: 1rem;
 }
 
 #games-show img {

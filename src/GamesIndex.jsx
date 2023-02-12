@@ -11,7 +11,6 @@ export function GamesIndex(props) {
   return (
     <div id="games-index">
       <center>
-        <h1>Board Games</h1>
       Search: <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} list="names" />
       </center>
       <datalist id="names">
@@ -20,7 +19,7 @@ export function GamesIndex(props) {
         ))}
       </datalist>
       <center>
-        <ImageList sx={{ width: 1000, height: 1000 }} cols={3} rowHeight={164}>
+        <ImageList sx={{ width: 1000, height: 800 }} cols={3} rowHeight={164}>
           {props.games.filter((game) => game.name.toLowerCase().includes(searchFilter.toLowerCase())).map((game) => (
             <ImageListItem key={game.image_url}>
               <Link to={`/games/${game.id}`}>
