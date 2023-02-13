@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { AwesomeButton } from 'react-awesome-button';
 import 'react-awesome-button/dist/styles.css';
-import {HeartIcon} from '@primer/octicons-react';
+import {HeartIcon, TagIcon} from '@primer/octicons-react';
 import { ReviewsNew } from "./ReviewsNew";
 import { StarRating } from "./StarRating";
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 
 export function GamesShowPage() {
   const [game, setGame] = useState({});
@@ -18,8 +19,6 @@ export function GamesShowPage() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [rate, setRate] = useState(3);
-
 
   const getGame = () => {
     console.log(params.id);
@@ -77,7 +76,9 @@ export function GamesShowPage() {
             </div>
             <div className="col-md-8">
               <div className="card-body">
-                <h3 className="card-text" align="left">{game.name}</h3>
+                <h3 className="card-text" align="left">{game.name}
+                  <Link to={`https://www.amazon.com/s?k=${game.name}+boardgame`} target="_blank"><TagIcon size={24} /></Link>
+                </h3>
                 <p className="text-muted" align="left">{game.players} Players</p>
                 <p className="card-text" align="left">{game.description}</p>
                 <p className="card-text" align="left">Category: {game.category}</p>

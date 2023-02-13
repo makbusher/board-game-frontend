@@ -36,7 +36,7 @@ export function FavoritesIndex (props) {
       <Grid container >
         {props.favorites.filter((favorite) => favorite.game.name.toLowerCase().includes(searchFilter.toLowerCase())).map((favorite) => (
           <div key={favorite.id}>
-            <Grid item ={6}>
+            <Grid item >
               <Card sx={{ maxWidth: 320 }}>
                 <CardActionArea>
                   <div style={{display: 'flex', justifyContent:'center'}}>
