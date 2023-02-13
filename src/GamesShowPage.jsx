@@ -18,6 +18,7 @@ export function GamesShowPage() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [rate, setRate] = useState(3);
 
 
   const getGame = () => {
@@ -69,7 +70,7 @@ export function GamesShowPage() {
   return (
     <div id="games-show">
       <div key={game.id}>
-        <div className="card mb-3" style={{width: '800px'}}>
+        <div className="card mb-3" style={{width: '800px'}} >
           <div className="row g-0">
             <div className="col-md-4">
               <img src={game.image_url} className="img-fluid rounded-start img-thumbnail pull-left" alt="..." width="300" height="300" />
@@ -81,7 +82,7 @@ export function GamesShowPage() {
                 <p className="card-text" align="left">{game.description}</p>
                 <p className="card-text" align="left">Category: {game.category}</p>
                 <AwesomeButton type="secondary" align="left" before={<HeartIcon />} onPress={() => handleCreateFavorite(game.id)}>Add to Favorites</AwesomeButton>
-                <AwesomeButton type="secondary" onPress={handleOpen}>Leave a Review</AwesomeButton>
+                <AwesomeButton type="secondary" align="left" onPress={handleOpen}>Leave a Review</AwesomeButton>
               </div>
             </div>
           </div>
@@ -96,13 +97,15 @@ export function GamesShowPage() {
             <ReviewsNew onCreateReview={handleCreateReview}/>
           </Box>
         </Modal>
-        <h4> Reviews </h4>
-        {reviews.map((review) => (
-          <div key={review.id}>
-            <StarRating value={review.rating} />
-            <p >Description: {review.description}</p>
-          </div>
-        ))}
+        <center>
+          <h4> Reviews </h4>
+          {reviews.map((review) => (
+            <div key={review.id}>
+              <StarRating value={review.rating} />
+              <p >Description: {review.description}</p>
+            </div>
+          ))}
+        </center>
       </div>
     </div>
   );

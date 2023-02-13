@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { FaStar } from 'react-icons/fa';
 import "./index.css";
+import { ReviewsNew } from "./ReviewsNew";
 
-export function StarRating() {  
-  const [rating, setRating] = useState(null);
+export function StarRating(props) {  
+  const [rating, setRating] = useState(props.value);
   const [hover, setHover] = useState(null);
+  const [overallRating, setOverallRating] = useState(4);
 
   return (
-    <div>
+    <div >
       {[...Array(5)].map((star, i) => {
         const ratingValue = i + 1;
 

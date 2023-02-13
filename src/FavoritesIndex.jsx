@@ -3,6 +3,13 @@ import { useState } from "react";
 import { TrashIcon } from '@primer/octicons-react';
 import 'react-awesome-button/dist/styles.css';
 import { AwesomeButton } from 'react-awesome-button';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import {CardActions, CardActionArea} from '@mui/material';
+import { Link } from 'react-router-dom';
+import Grid from '@mui/material/Grid';
 
 export function FavoritesIndex (props) {
   const [favorites, setFavorites] = useState([]);
@@ -26,13 +33,38 @@ export function FavoritesIndex (props) {
           <option key={favorite.id} value={favorite.game.name} />
         ))}
       </datalist>
-      {props.favorites.filter((favorite) => favorite.game.name.toLowerCase().includes(searchFilter.toLowerCase())).map((favorite) => (
-        <div key={favorite.id}>
-          <h2>{favorite.game.name}</h2>            
-          <img src={favorite.game.image_url} className="img-thumbnail"/>
-          <AwesomeButton type="danger" onPress={() => handleDestroyFavorite(favorite)}>Remove from Favorites</AwesomeButton>
-        </div> 
-      ))}
+      <Grid container >
+        {props.favorites.filter((favorite) => favorite.game.name.toLowerCase().includes(searchFilter.toLowerCase())).map((favorite) => (
+          <div key={favorite.id}>
+            <Grid item ={6}>
+              <Card sx={{ maxWidth: 320 }}>
+                <CardActionArea>
+                  <div style={{display: 'flex', justifyContent:'center'}}>
+                    <Link to={`/games/${favorite.game.id}`}>
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={favorite.game.image_url}
+                      />
+                    </Link>
+                  </div>
+                  <div style={{display: 'flex', justifyContent:'center'}}>
+                    <CardContent>
+                      <Typography gutterBottom variant="h5" component="div">
+                        {favorite.game.name}
+                      </Typography>
+                    </CardContent>
+                  </div>
+                </CardActionArea>
+                <CardActions>
+                  <AwesomeButton type="danger" before={<TrashIcon />} onPress={() => handleDestroyFavorite(favorite)}>Remove</AwesomeButton>
+                </CardActions>
+              </Card>
+            </Grid>
+          </div>
+        ))}
+      </Grid>
     </div>
   );
 }
+
