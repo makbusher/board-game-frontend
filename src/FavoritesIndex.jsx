@@ -3,14 +3,8 @@ import { useState } from "react";
 import { TrashIcon } from '@primer/octicons-react';
 import 'react-awesome-button/dist/styles.css';
 import { AwesomeButton } from 'react-awesome-button';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import {CardActions, CardActionArea} from '@mui/material';
+import {Card, CardMedia, CardContent, Typography, CardActions, CardActionArea, Grid, Container} from '@mui/material';
 import { Link } from 'react-router-dom';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container';
 
 export function FavoritesIndex (props) {
   const [favorites, setFavorites] = useState([]);

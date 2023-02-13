@@ -6,8 +6,7 @@ import 'react-awesome-button/dist/styles.css';
 import {HeartIcon, TagIcon} from '@primer/octicons-react';
 import { ReviewsNew } from "./ReviewsNew";
 import { StarRating } from "./StarRating";
-import Modal from '@mui/material/Modal';
-import Box from '@mui/material/Box';
+import {Modal, Box} from '@mui/material';
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 
@@ -56,7 +55,7 @@ export function GamesShowPage() {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 700,
+    width: 720,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
