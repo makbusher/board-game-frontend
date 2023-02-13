@@ -7,7 +7,7 @@ export function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-secondary" data-bs-theme="light">
       <div className="container-fluid">
-        <a> <Link to="/" className="nav-link"><img src={logo} width="100em" height="60em" /></Link></a>
+        <Link to="/" className="nav-link"><img src={logo} width="100em" height="60em" /></Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
