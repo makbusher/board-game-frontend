@@ -6,7 +6,6 @@ import { ReviewsNew } from "./ReviewsNew";
 export function StarRating(props) {  
   const [rating, setRating] = useState(props.value);
   const [hover, setHover] = useState(null);
-  const [overallRating, setOverallRating] = useState(4);
 
   return (
     <div >
@@ -24,7 +23,7 @@ export function StarRating(props) {
             <FaStar 
               className="star" 
               color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
-              size={35}
+              size={30}
               onMouseEnter={() => setHover(ratingValue)}
               onMouseLeave={() => setHover(null)} 
             />

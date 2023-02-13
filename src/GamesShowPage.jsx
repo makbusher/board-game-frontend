@@ -98,15 +98,15 @@ export function GamesShowPage() {
             <ReviewsNew onCreateReview={handleCreateReview}/>
           </Box>
         </Modal>
-        <center>
-          <h4> Reviews </h4>
-          {reviews.map((review) => (
-            <div key={review.id}>
-              <StarRating value={review.rating} />
-              <p >Description: {review.description}</p>
-            </div>
-          ))}
-        </center>
+        <hr/>
+        <h4> Reviews </h4>
+        {reviews.map((review) => (
+          <div key={review.id}>
+            <StarRating value={review.rating} />
+            <p>{review.description}</p>
+            <hr />
+          </div>
+        ))}
       </div>
     </div>
   );
