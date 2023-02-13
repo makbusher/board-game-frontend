@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
 import { Login } from "./Login";
+import logo from './images/BGR-logos_black.png';
 
 export function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-secondary" data-bs-theme="light">
       <div className="container-fluid">
-        <a className="navbar-brand navbar-dark bg-dark" href="/">BGR</a>
+        <a> <Link to="/" className="nav-link"><img src={logo} width="100em" height="60em" /></Link></a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
