@@ -14,7 +14,6 @@ export function Content() {
   const [currentGame, setCurrentGame] = useState({});
 
   const handleIndexGames = () => {
-    console.log("handleIndexGames");
     axios.get("http://localhost:3000/games.json").then((response) => {
       console.log(response.data);
       setGames(response.data);
@@ -22,7 +21,6 @@ export function Content() {
   };
   
   const handleIndexFavorites = () => {
-    console.log("handleIndexFavorites");
     axios.get("http://localhost:3000/favorites.json").then((response) => {
       console.log(response.data);
       setFavorites(response.data);
@@ -30,7 +28,6 @@ export function Content() {
   };
 
   const handleShowGame = (game) => {
-    console.log("handleShowGame", game);
     setCurrentGame(game);
   };
 

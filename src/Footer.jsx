@@ -1,9 +1,9 @@
 export function Footer() {
   return (
-    <footer id="footer">
+    <footer>
       <center>
-        <p>Copyright 2023</p>
+        Copyright 2023
       </center>
     </footer>
-  );
+  )
 }

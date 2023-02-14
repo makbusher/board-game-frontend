@@ -3,7 +3,6 @@ import { StarRating } from "./StarRating";
 
 export function ReviewsNew(props) {
   const handleSubmit = (event) => {
-    console.log(props.gameId);
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateReview(params, () => event.target.reset());

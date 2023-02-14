@@ -11,7 +11,6 @@ export function FavoritesIndex (props) {
   const [searchFilter, setSearchFilter] = useState("");
 
   const handleDestroyFavorite = (favorite) => {
-    console.log("handleDestroyFavorite", favorite);
     axios.delete(`http://localhost:3000/favorites/${favorite.id}.json`).then((response) => {
       setFavorites(favorites.filter((f) => f.id !== favorite.id));
       window.location.href = "/favorites";

@@ -20,7 +20,6 @@ export function GamesShowPage() {
   const handleClose = () => setOpen(false);
 
   const getGame = () => {
-    console.log(params.id);
     axios.get(`http://localhost:3000/games/${params.id}.json`).then((response) => {
       console.log(response.data);
       setGame(response.data);
@@ -35,7 +34,6 @@ export function GamesShowPage() {
   };
 
   const handleCreateFavorite = (gameId, successCallback) => {
-    console.log("handlingCreateFavorite");
     axios.post(`http://localhost:3000/games/${gameId}/favorites.json`).then((response) => {
       setFavorites([...favorites, response.data]);
       successCallback;
@@ -43,7 +41,6 @@ export function GamesShowPage() {
   };
 
   const handleCreateReview = (params, successCallback) => {
-    console.log("handlingCreateReview");
     axios.post(`http://localhost:3000/games/${game.id}/reviews.json`, params).then((response) => {
       setReviews([...reviews, response.data]);
       successCallback();
