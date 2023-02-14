@@ -1,6 +1,6 @@
 import { Header } from "./Header";
 import { Content } from "./Content";
-import Footer from "./Footer";
+import {Footer} from "./Footer";
 import { Login } from "./Login";
 import { BrowserRouter } from "react-router-dom";
 
