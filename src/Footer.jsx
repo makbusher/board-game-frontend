@@ -5,5 +5,5 @@ export function Footer() {
         Copyright 2023
       </center>
     </footer>
-  )
+  );
 }

@@ -44,6 +44,7 @@ export function GamesShowPage() {
     axios.post(`http://localhost:3000/games/${game.id}/reviews.json`, params).then((response) => {
       setReviews([...reviews, response.data]);
       successCallback();
+      window.location.href = `/games/${game.id}`;
     });
   };
 
