@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { LogoutLink } from "./LogoutLink";
 import { Login } from "./Login";
-import logo from './images/BGR-logos.jpeg';
+import logo from './images/BGR-1.png';
 
 export function Header() {
   return (
