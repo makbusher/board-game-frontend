@@ -37,6 +37,7 @@ export function GamesShowPage() {
     axios.post(`http://localhost:3000/games/${gameId}/favorites.json`).then((response) => {
       setFavorites([...favorites, response.data]);
       successCallback;
+      window.location.href = "/favorites";
     });
   };
 
