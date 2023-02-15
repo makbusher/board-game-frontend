@@ -4,7 +4,7 @@ This is a board game app that allows users to search through games and save, rat
 
 Backend Repo: https://github.com/makbusher/board-game-api
 
-## Installaion 
+## Installation 
 
 1) Clone the Rails Backend (board-game-api) 
 ```
