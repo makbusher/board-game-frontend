@@ -37,4 +37,4 @@ npm run dev
 
 ## Usage
 
-Get the apps running by starting both the backend and frontend servers. This should allow you to see the website, but no games will be displayed. Currently, there is no data saved to the backend. To use the app, you must create games that will display on the frontend. Users, reviews, and favorites can all be created on the frontend through axios requests as long as the backend server is running as well.
+Get the apps running by starting both the backend (step 3) and frontend servers (step 7). This should allow you to see the website (http://localhost:5173), but no games will be displayed. Currently, there is no data saved to the backend. To use the app, you must create games that will display on the frontend. Users, reviews, and favorites can all be created on the frontend through axios requests as long as the backend server is running as well.
